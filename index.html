@@ -1,0 +1,216 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHIMUL_MRX // Explorer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #050505;
+            color: #f5f5f5;
+            margin: 0;
+            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #222; border-radius: 0px; transition: background 0.3s; }
+        ::-webkit-scrollbar-thumb:hover { background: #f97316; }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        @keyframes noise {
+            0%, 100% { transform: translate(0,0) }
+            10% { transform: translate(-5%,-10%) }
+            30% { transform: translate(3%,-15%) }
+            50% { transform: translate(12%,9%) }
+            70% { transform: translate(9%,4%) }
+            90% { transform: translate(-1%,7%) }
+        }
+
+        .noise-overlay {
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            right: -50%;
+            bottom: -50%;
+            width: 200%;
+            height: 200%;
+            background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat;
+            animation: noise .2s infinite;
+            opacity: .04; pointer-events: none; z-index: 100;
+        }
+
+        /* TEXT ANIMATIONS */
+        @keyframes text-flicker {
+            0% { opacity: 0.1; }
+            2% { opacity: 1; }
+            8% { opacity: 0.1; }
+            9% { opacity: 1; }
+            12% { opacity: 0.1; }
+            20% { opacity: 1; }
+            25% { opacity: 0.3; }
+            30% { opacity: 1; }
+            70% { opacity: 0.7; }
+            72% { opacity: 0.2; }
+            77% { opacity: 0.9; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes text-shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        @keyframes soft-pulse {
+            0%, 100% { opacity: 0.8; transform: translateY(0); }
+            50% { opacity: 1; transform: translateY(-3px); }
+        }
+
+        .shimmer-text {
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(249,115,22,0.8) 50%, rgba(255,255,255,0) 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: text-shimmer 4s linear infinite;
+        }
+
+        .flicker { animation: text-flicker 5s linear infinite; }
+        .animate-soft-alive { animation: soft-pulse 6s ease-in-out infinite; }
+
+        .glitch-text {
+            position: relative;
+            display: inline-block;
+        }
+        .glitch-text::before, .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.8;
+        }
+        .glitch-text:hover::before {
+            left: 3px;
+            text-shadow: -2px 0 #f97316;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 4s infinite linear alternate-reverse;
+        }
+        .glitch-text:hover::after {
+            left: -3px;
+            text-shadow: -2px 0 #fbbf24;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim2 4s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% { clip: rect(31px, 9999px, 94px, 0); }
+            20% { clip: rect(62px, 9999px, 42px, 0); }
+            40% { clip: rect(16px, 9999px, 78px, 0); }
+            60% { clip: rect(87px, 9999px, 12px, 0); }
+            80% { clip: rect(23px, 9999px, 55px, 0); }
+            100% { clip: rect(98px, 9999px, 34px, 0); }
+        }
+        @keyframes glitch-anim2 {
+            0% { clip: rect(65px, 9999px, 11px, 0); }
+            20% { clip: rect(21px, 9999px, 87px, 0); }
+            40% { clip: rect(92px, 9999px, 34px, 0); }
+            60% { clip: rect(45px, 9999px, 67px, 0); }
+            80% { clip: rect(12px, 9999px, 98px, 0); }
+            100% { clip: rect(78px, 9999px, 23px, 0); }
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .orange-glow {
+            box-shadow: 0 0 50px -15px rgba(249, 115, 22, 0.2);
+        }
+
+        /* OBJECT HOVER EFFECTS */
+        @keyframes scan {
+            0% { top: -10%; }
+            100% { top: 110%; }
+        }
+
+        .object-card {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+        }
+
+        .object-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 20px 40px -20px rgba(249, 115, 22, 0.2);
+        }
+
+        .object-card::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #f97316, transparent);
+            box-shadow: 0 0 15px #f97316;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 20;
+        }
+
+        .object-card:hover::after {
+            animation: scan 2s linear infinite;
+            opacity: 0.5;
+        }
+
+        .nav-link-hover {
+            position: relative;
+        }
+        .nav-link-hover::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            width: 0;
+            height: 1px;
+            background: #f97316;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        .nav-link-hover:hover::after {
+            width: 80%;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "lucide-react": "https://esm.sh/lucide-react@^0.475.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "ogl": "https://esm.sh/ogl@^1.0.11",
+    "@use-gesture/react": "https://esm.sh/@use-gesture/react@^10.3.1"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="root"></div>
+    <div class="noise-overlay"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
