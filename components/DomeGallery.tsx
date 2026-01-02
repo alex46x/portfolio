@@ -16,56 +16,56 @@ const DEFAULT_IMAGES = [
 
   
   {
-    src: '1.jpg',
+    src: 'https://images.unsplash.com/photo-1767374491798-45736aaf50f8?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     alt: 'MY 1  art'
 
   },
 
 
   {
-    src: '2.jpg',
+    src: 'https://images.unsplash.com/photo-1767374483042-b45434b6e319?q=80&w=720&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     alt: 'MY 1  art'
 
   },
 
 
   {
-    src: '3.jpg',
+    src: 'https://images.unsplash.com/photo-1767374498308-aceb3c548728?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     alt: 'MY 1  art'
 
   },
 
 
   {
-    src: '4.jpg',
+    src: 'https://images.unsplash.com/photo-1767374528600-fca4d7df10db?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     alt: 'MY 1  art'
 
   },
   {
-    src: '5.jpg',
+    src: 'https://images.unsplash.com/photo-1767374544087-6289144db50f?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     alt: 'MY 1  art'
 
   },
   {
-    src: '6.jpg',
+    src: 'https://images.unsplash.com/photo-1767374502919-ce6ca6b57cb6?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     alt: 'MY 1  art'
 
   },
   {
-    src: '7.jpg',
+    src: 'https://images.unsplash.com/photo-1767374534191-2f049d214202?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     alt: 'MY 1  art'
 
   },
 
 
   {
-    src: '8.jpg',
+    src: 'https://images.unsplash.com/photo-1767374495424-150fa691b7ea?q=80&w=778&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     alt: 'MY 1  art'
 
   },
 
   {
-    src: '9.jpg',
+    src: 'https://images.unsplash.com/photo-1767374552639-20c060526134?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     alt: 'MY 1  art'
 
   },
@@ -73,15 +73,17 @@ const DEFAULT_IMAGES = [
 
 
   {
-    src: '10.jpg',
+    src: 'https://images.unsplash.com/photo-1767374514422-76cdcff38e4c?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     alt: 'MY 1  art'
 
   },
-  {
-    src: '11.jpg',
-    alt: 'MY 1  art'
 
-  },
+  
+  // {
+  //   src: '11.jpg',
+  //   alt: 'MY 1  art'
+
+  // },
 
 
 
