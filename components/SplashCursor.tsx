@@ -42,7 +42,7 @@ const SplashCursor: React.FC<SplashCursorProps> = ({
 
     let isActive = true;
 
-    function Pointer() {
+    function Pointer(this: any) {
       this.id = -1;
       this.texcoordX = 0;
       this.texcoordY = 0;
@@ -75,7 +75,10 @@ const SplashCursor: React.FC<SplashCursorProps> = ({
 
     let pointers = [new (Pointer as any)()];
 
-    const { gl, ext } = getWebGLContext(canvas);
+    const contextResult = getWebGLContext(canvas);
+    if (!contextResult) return;
+    const { gl, ext } = contextResult;
+
     if (!ext.supportLinearFiltering) {
       config.DYE_RESOLUTION = 256;
       config.SHADING = false;
@@ -93,6 +96,8 @@ const SplashCursor: React.FC<SplashCursorProps> = ({
       const isWebGL2 = !!gl;
       if (!isWebGL2) gl = (canvas.getContext('webgl', params) || canvas.getContext('experimental-webgl', params)) as WebGL2RenderingContext;
 
+      if (!gl) return null;
+
       let halfFloat: any;
       let supportLinearFiltering: any;
       if (isWebGL2) {
@@ -104,7 +109,7 @@ const SplashCursor: React.FC<SplashCursorProps> = ({
       }
       gl.clearColor(0.0, 0.0, 0.0, 1.0);
 
-      const halfFloatTexType = isWebGL2 ? gl.HALF_FLOAT : halfFloat && halfFloat.HALF_FLOAT_OES;
+      const halfFloatTexType = isWebGL2 ? gl.HALF_FLOAT : halfFloat && (halfFloat as any).HALF_FLOAT_OES;
       let formatRGBA: any;
       let formatRG: any;
       let formatR: any;
@@ -165,7 +170,6 @@ const SplashCursor: React.FC<SplashCursorProps> = ({
       fragmentShaderSource: string;
       programs: any[];
       activeProgram: WebGLProgram | null;
-      // Fix: Changed from any[] to any to allow property access
       uniforms: any;
 
       constructor(vertexShader: WebGLShader, fragmentShaderSource: string) {
@@ -173,7 +177,6 @@ const SplashCursor: React.FC<SplashCursorProps> = ({
         this.fragmentShaderSource = fragmentShaderSource;
         this.programs = [];
         this.activeProgram = null;
-        // Fix: Initialized as object instead of array
         this.uniforms = {};
       }
       setKeywords(keywords: string[]) {
@@ -218,7 +221,6 @@ const SplashCursor: React.FC<SplashCursorProps> = ({
     }
 
     function getUniforms(program: WebGLProgram) {
-      // Fix: Initialized as object instead of array to handle string keys correctly
       let uniforms: any = {};
       let uniformCount = gl.getProgramParameter(program, gl.ACTIVE_UNIFORMS);
       for (let i = 0; i < uniformCount; i++) {
