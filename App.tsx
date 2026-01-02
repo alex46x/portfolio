@@ -219,7 +219,7 @@ const App: React.FC = () => {
               
               src="3.jpg" 
 
-              //{/* src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop"  */}
+              
               alt="Hero Cover" 
               className="w-full h-full object-cover grayscale opacity-20 transition-transform duration-1000 scale-105"
               style={{ transform: `translateY(${scrolled * 100}px)` }}
