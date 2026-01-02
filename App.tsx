@@ -217,7 +217,7 @@ const App: React.FC = () => {
           <div className="absolute inset-0 z-0 overflow-hidden">
             <img 
               
-              src="https://images.unsplash.com/photo-1480455624313-e29b44bbfde1?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+              src="https://images.unsplash.com/photo-1767374483042-b45434b6e319?q=80&w=720&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
 
               
               alt="Hero Cover" 
@@ -408,7 +408,7 @@ const App: React.FC = () => {
               <div className="relative order-2 lg:order-1">
                 <div className="aspect-[4/5] glass rounded-[2rem] md:rounded-[2.5rem] overflow-hidden relative group orange-glow object-card mx-auto max-w-[400px] lg:max-w-none">
                   <img 
-                    src="1.jpg" 
+                    src="https://images.unsplash.com/photo-1767374491798-45736aaf50f8?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
 
                     // src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop" 
 
