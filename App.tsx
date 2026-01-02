@@ -216,10 +216,10 @@ const App: React.FC = () => {
         <section id="home" className="relative min-h-screen flex flex-col justify-center px-6 md:px-24 pt-20">
           <div className="absolute inset-0 z-0 overflow-hidden">
             <img 
-              src="3.jpg" 
+              {/* src="3.jpg"  */}
               // src="IMG_20251216_125234.jpg" 
 
-              // src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop" 
+              src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop" 
               alt="Hero Cover" 
               className="w-full h-full object-cover grayscale opacity-20 transition-transform duration-1000 scale-105"
               style={{ transform: `translateY(${scrolled * 100}px)` }}
