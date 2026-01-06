@@ -452,7 +452,7 @@ const App: React.FC = () => {
                   <div className="grid grid-cols-2 gap-6 md:gap-10 pt-8 md:pt-10 border-t border-white/5">
                     <div className="object-card p-3 md:p-4 rounded-xl border border-transparent hover:border-orange-500/10">
                       <h4 className="mono text-[9px] md:text-[10px] text-gray-500 mb-2 md:mb-3 tracking-widest uppercase flicker">Current Year</h4>
-                      <p className="text-white text-xl md:text-2xl font-black italic underline decoration-orange-500/30 underline-offset-8">3RD YEAR</p>
+                      <p className="text-white text-xl md:text-2xl font-black italic underline decoration-orange-500/30 underline-offset-8">2nd YEAR</p>
                     </div>
                     <div className="object-card p-3 md:p-4 rounded-xl border border-transparent hover:border-orange-500/10">
                       <h4 className="mono text-[9px] md:text-[10px] text-gray-500 mb-2 md:mb-3 tracking-widest uppercase flicker">Real Projects</h4>
