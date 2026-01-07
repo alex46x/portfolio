@@ -258,7 +258,7 @@ const App: React.FC = () => {
                 <div className="glass p-6 rounded-2xl border-orange-500/10 space-y-4 max-w-[320px] orange-glow backdrop-blur-xl object-card">
                   <div className="flex justify-between items-center mono text-[10px] opacity-40 flicker">
                     <span>COGNITIVE_METRICS</span>
-                    <span>CSE_MODULE_3.1</span>
+                    <span>CSE_MODULE_2.2</span>
                   </div>
                   <div className="flex gap-1 h-8 items-end">
                     {[30, 60, 45, 80, 55, 40, 75, 50, 65, 35].map((h, i) => (
@@ -266,7 +266,7 @@ const App: React.FC = () => {
                     ))}
                   </div>
                   <p className="mono text-[11px] leading-relaxed text-gray-400">
-                    Student Link active. Current Phase: 3rd Year, 1st Sem. Focused on building, breaking, and understanding core computing primitives.
+                    Student Link active. Current Phase: 2nd Year, 2nd Sem. Focused on building, breaking, and understanding core computing primitives.
                   </p>
                 </div>
               </div>
